@@ -1,6 +1,5 @@
 pipeline {
-    agent { label 'WORKSTATION' }
-
+  agent { label 'WORKSTATION' }
   stages {
     stage ('vpc') {
         steps {
