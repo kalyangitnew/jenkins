@@ -3,22 +3,28 @@ pipeline {
 
   stages {
     stage ('vpc') {
-        sh '''
-            cd vpc
-            make dev-apply
-        '''
+        steps {
+            sh '''
+                cd vpc
+                make dev-apply
+            '''
+        }
     }
     stage ('db') {
-        sh '''
-            cd db
-            make dev-apply
-        '''
+        steps {
+            sh '''
+                cd db
+                make dev-apply
+            '''
+        }
     }
     stage ('alb') {
-        sh '''
-            cd alb
-            make dev-apply
-        '''
+        steps {
+            sh '''
+                cd alb
+                make dev-apply
+            '''
+        }
     }
   }
 }
