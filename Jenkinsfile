@@ -1,24 +1,24 @@
 pipeline {
-  agent any
+  agent {label 'WORKSTATION'}
 
   stages {
-    stage('Hello') {
-      steps {
-        sh 'echo Helo'
-        sh 'echo Bye'
-        print 'Hello'
-        script {
-          println "Hello World"
-        }
-      }
+    stage ('vpc') {
+        sh '''
+            cd vpc
+            make dev-apply
+        '''
     }
-
-  }
-
-  post {
-    always {
-      println 'Post step'
+    stage ('db') {
+        sh '''
+            cd db
+            make dev-apply
+        '''
+    }
+    stage ('alb') {
+        sh '''
+            cd alb
+            make dev-apply
+        '''
     }
   }
-
 }
