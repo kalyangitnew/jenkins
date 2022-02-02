@@ -7,5 +7,10 @@ pipeline {
                 echo 'Hello World'
             }
         }
+        stage("devops is job") {
+            steps {
+                echo 'need to get job'
+            }
+        }
     }
 }
